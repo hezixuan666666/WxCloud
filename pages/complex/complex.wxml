@@ -1,0 +1,12 @@
+<!--pages/complex/complex.wxml-->
+
+<van-button type="primary" size="normal">普通按钮</van-button>
+<van-button type="warning" size="normal">警告按钮</van-button>
+<van-button type="danger" size="normal">危险按钮</van-button>
+<van-card
+  num="2"
+  price="2.00"
+  desc="描述信息"
+  title="商品标题"
+  thumb="{{ imageURL }}"
+/>

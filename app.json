@@ -1,0 +1,18 @@
+{
+  "pages":[
+    "pages/home/home",
+    "pages/index/index",
+    "pages/add/add",
+    "pages/complex/complex",
+    "pages/info/info"
+
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#f6f6f6",
+    "navigationBarTitleText": "云开发 数据库实战",
+    "navigationBarTextStyle":"black"
+  },
+
+  "sitemapLocation": "sitemap.json"
+}
