@@ -1,4 +1,8 @@
 // pages/complex/complex.js
+const db=wx.cloud.database()
+const productsCollection=db.collection('products')
+const _ = db.command
+
 Page({
 
   /**
@@ -7,60 +11,69 @@ Page({
   data: {
 
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  simple:function(event){
+    productsCollection.get().then(res=>{
+      this.setData({
+        products:res.data
+      })
+    }
+    )
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  red:function(event){
+    productsCollection.where({
+      color:"red"
+    }).get().then(res=>{
+      this.setData({
+        products:res.data
+      })
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+// 查询价格小于50
+  lt:function(event){
+    productsCollection.where({
+      price:_.lt(50)
+    }).get().then(res=>{
+      this.setData({
+        products:res.data
+      })
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  // 查询view为3,4,5
+  in:function(event){
+    productsCollection.where({
+      view:_.in([3,4,5])
+    }).get().then(res=>{
+      this.setData({
+        products:res.data
+      })
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
+  // 查询price在20到50
+  and:function(event){
+    productsCollection.where({
+      price:_.gt(20).and(_.lt(50))
+    }).get().then(res=>{
+      this.setData({
+        products:res.data
+      })
+    })
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
+  // 限制查询10条数据
+  limit:function(event){
+    productsCollection.limit(10).get().then(res=>{
+      this.setData({
+        products:res.data
+      })
+    }
+    )
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  // 按照访问量降序，价格升序排序
+  orderby:function(event){
+    productsCollection.orderBy('view','desc').orderBy('price','asc').get().then(res=>{
+      this.setData({
+        products:res.data
+      })
+    })
   }
+
 })

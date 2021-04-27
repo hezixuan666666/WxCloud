@@ -1,5 +1,8 @@
 {
   "usingComponents": {
     "van-card": "@vant/weapp/card"
-  }
+  },
+  "enablePullDownRefresh" : true,
+  "backgroundTextStyle": "dark",
+  "onReachBottomDistance":100
 }

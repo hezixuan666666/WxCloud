@@ -1,12 +1,21 @@
 <!--pages/complex/complex.wxml-->
 
-<van-button type="primary" size="normal">普通按钮</van-button>
-<van-button type="warning" size="normal">警告按钮</van-button>
-<van-button type="danger" size="normal">危险按钮</van-button>
+<van-button type="primary" size="normal" bindtap="simple">简单查询</van-button>
+<van-button type="warning" size="normal"bindtap="red">only red</van-button>
+<van-button type="danger" size="normal"bindtap="lt">lt 50</van-button>
+<van-button type="primary" size="normal"bindtap="in">in 4-6</van-button>
+<van-button type="primary" size="normal"bindtap="and">price and 20-50</van-button>
+<van-button type="primary" size="normal"bindtap="limit">limit</van-button>
+<van-button type="primary" size="normal"bindtap="orderby">order by</van-button>
+
+<block wx:for="{{products}}"wx:key="key">
 <van-card
-  num="2"
-  price="2.00"
-  desc="描述信息"
-  title="商品标题"
-  thumb="{{ imageURL }}"
+  price="{{item.price}}"
+  num = "{{item.view}}"
+  desc = "{{item.color}}"
+  title="{{item.title}}"
+  thumb="{{item.image}}"
+  bindtap ="click"
+  data-id = "{{item._id}}"
 />
+</block>>

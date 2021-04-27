@@ -1,8 +1,11 @@
 <!--pages/index/index.wxml-->
+<block wx:for="{{products}}"wx:key="key">
 <van-card
-  num="2"
-  price="2.00"
-  desc="描述信息"
-  title="商品标题"
-  thumb="{{ imageURL }}"
+  price="{{item.view}}"
+  desc="{{item.color}}"
+  title="{{item.title}}"
+  thumb="{{item.image}}"
+  bindtap ="click"
+  data-id = "{{item._id}}"
 />
+</block>>

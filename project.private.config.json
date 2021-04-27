@@ -41,6 +41,11 @@
           "pathName": "pages/info/info",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/regex/regex",
+          "pathName": "pages/regex/regex",
+          "scene": null
         }
       ]
     }
